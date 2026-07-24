@@ -1,0 +1,39 @@
+openapi: 3.0.3
+info:
+  title: Rows Data Folders API
+  version: v1
+  description: The Rows API lets you programmatically read and write data in Rows spreadsheets. It exposes workspaces, folders and spreadsheets for discovery, table cell/value read-write operations for moving data in and out of a spreadsheet, and a Vision import endpoint that extracts structured data from image/document files using AI. Authentication is a Bearer API key generated from your Rows account. This description is DERIVED by API Evangelist from Rows' official public integration source (the first-party n8n community node) and the public developer docs; it captures the verified subset of operations and is not the provider's authoritative machine-readable contract.
+  contact:
+    name: Rows Support
+    url: https://developers.rows.com/
+  x-apievangelist-provenance:
+    generated: '2026-07-21'
+    method: derived
+    source: https://github.com/rows/rows-n8n-nodes-rows (official first-party n8n node) + https://developers.rows.com/ + https://rows.com/docs/api
+servers:
+- url: https://api.rows.com/v1
+  description: Production
+security:
+- BearerAuth: []
+tags:
+- name: Folders
+  description: Discover folders that organize spreadsheets.
+paths:
+  /folders:
+    get:
+      operationId: listFolders
+      tags:
+      - Folders
+      summary: List folders
+      description: List the folders that organize spreadsheets in the workspace.
+      responses:
+        '200':
+          description: A list of folders.
+        '401':
+          description: Missing or invalid API key.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Rows API key sent as an Authorization: Bearer <API_KEY> header. Generate a key in your Rows account settings.'

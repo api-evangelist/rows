@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: Rows Data API
+  version: v1
+  description: The Rows API lets you programmatically read and write data in Rows spreadsheets. It exposes workspaces, folders and spreadsheets for discovery, table cell/value read-write operations for moving data in and out of a spreadsheet, and a Vision import endpoint that extracts structured data from image/document files using AI. Authentication is a Bearer API key generated from your Rows account. This description is DERIVED by API Evangelist from Rows' official public integration source (the first-party n8n community node) and the public developer docs; it captures the verified subset of operations and is not the provider's authoritative machine-readable contract.
+  contact:
+    name: Rows Support
+    url: https://developers.rows.com/
+  x-apievangelist-provenance:
+    generated: '2026-07-21'
+    method: derived
+    source: https://github.com/rows/rows-n8n-nodes-rows (official first-party n8n node) + https://developers.rows.com/ + https://rows.com/docs/api
+servers:
+- url: https://api.rows.com/v1
+  description: Production
+security:
+- BearerAuth: []
+tags:
+- name: Data
+  description: Read and write table cell and value ranges.
+paths:
+  /spreadsheets/{spreadsheetId}/tables/{tableId}/values/{range}:append:
+    post:
+      operationId: appendValues
+      tags:
+      - Data
+      summary: Append values to a table
+      description: Append rows of values to a table at the given A1-notation range (e.g. A1:B1000). The body carries a values array of string arrays.
+      parameters:
+      - name: spreadsheetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: range
+        in: path
+        required: true
+        description: A1-notation range, e.g. A1:B1000.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                values:
+                  type: array
+                  description: An array of rows, each row an array of cell strings.
+                  items:
+                    type: array
+                    items:
+                      type: string
+      responses:
+        '200':
+          description: Values appended.
+        '401':
+          description: Missing or invalid API key.
+        '404':
+          description: Spreadsheet or table not found.
+  /spreadsheets/{spreadsheetId}/tables/{tableId}/cells/{range}:
+    post:
+      operationId: overwriteCells
+      tags:
+      - Data
+      summary: Overwrite cells in a table
+      description: Overwrite the cells of a table at the given A1-notation range. The body carries a cells array of arrays of cell objects ({ value }).
+      parameters:
+      - name: spreadsheetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: range
+        in: path
+        required: true
+        description: A1-notation range, e.g. A1:B1000.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cells:
+                  type: array
+                  description: An array of rows, each row an array of cell objects.
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: string
+      responses:
+        '200':
+          description: Cells overwritten.
+        '401':
+          description: Missing or invalid API key.
+        '404':
+          description: Spreadsheet or table not found.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Rows API key sent as an Authorization: Bearer <API_KEY> header. Generate a key in your Rows account settings.'
