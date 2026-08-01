@@ -1,22 +1,151 @@
 aid: rows
 name: Rows
-description: 'Rows is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. Sector: productivity. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: >-
+  Rows is an AI-powered spreadsheet that connects to live data from dozens of
+  business tools and lets teams build reports, dashboards and lightweight data
+  apps without leaving a familiar grid. Beyond the app, Rows ships a public REST
+  API (base https://api.rows.com/v1) authenticated with a Bearer API key: it
+  exposes workspaces, folders and spreadsheets for discovery, table cell and
+  value read-write operations for moving data in and out of a sheet, and a
+  Vision endpoint that uses AI to extract structured tabular data from image and
+  document files. API access is included on every plan with monthly call quotas
+  scaling from the Free tier (500 calls/month) to Enterprise. Rows is SOC 2 Type
+  II certified and GDPR compliant with European data residency, and joined
+  Superhuman in 2025. It was backed by Accel.
 url: https://raw.githubusercontent.com/api-evangelist/rows/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://rows.com/favicon.ico
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - accel
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-public-api-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Productivity
-apis: []
+- Spreadsheets
+- Data
+- No-Code
+- Automation
+- Artificial Intelligence
+- Analytics
+- Business Intelligence
+apis:
+- aid: rows:rows-data-api
+  name: Rows Data API
+  description: Read and write table cell and value ranges.
+  humanURL: https://developers.rows.com/
+  baseURL: https://api.rows.com/v1
+  tags:
+  - Data
+  properties:
+  - type: OpenAPI
+    url: openapi/rows-data-api-openapi.yml
+  - type: Authentication
+    url: authentication/rows-authentication.yml
+  - type: Conventions
+    url: conventions/rows-conventions.yml
+  - type: DataModel
+    url: data-model/rows-data-model.yml
+  - type: ErrorCatalog
+    url: errors/rows-problem-types.yml
+  - type: AgenticAccess
+    url: agentic-access/rows-agentic-access.yml
+- aid: rows:rows-folders-api
+  name: Rows Folders API
+  description: Discover folders that organize spreadsheets.
+  humanURL: https://developers.rows.com/
+  baseURL: https://api.rows.com/v1
+  tags:
+  - Folders
+  properties:
+  - type: OpenAPI
+    url: openapi/rows-folders-api-openapi.yml
+  - type: Authentication
+    url: authentication/rows-authentication.yml
+  - type: Conventions
+    url: conventions/rows-conventions.yml
+  - type: DataModel
+    url: data-model/rows-data-model.yml
+  - type: ErrorCatalog
+    url: errors/rows-problem-types.yml
+  - type: AgenticAccess
+    url: agentic-access/rows-agentic-access.yml
+- aid: rows:rows-spreadsheets-api
+  name: Rows Spreadsheets API
+  description: List and read spreadsheets and their tables.
+  humanURL: https://developers.rows.com/
+  baseURL: https://api.rows.com/v1
+  tags:
+  - Spreadsheets
+  properties:
+  - type: OpenAPI
+    url: openapi/rows-spreadsheets-api-openapi.yml
+  - type: Authentication
+    url: authentication/rows-authentication.yml
+  - type: Conventions
+    url: conventions/rows-conventions.yml
+  - type: DataModel
+    url: data-model/rows-data-model.yml
+  - type: ErrorCatalog
+    url: errors/rows-problem-types.yml
+  - type: AgenticAccess
+    url: agentic-access/rows-agentic-access.yml
+- aid: rows:rows-vision-api
+  name: Rows Vision API
+  description: Extract structured data from files using Rows AI Vision.
+  humanURL: https://developers.rows.com/
+  baseURL: https://api.rows.com/v1
+  tags:
+  - Vision
+  properties:
+  - type: OpenAPI
+    url: openapi/rows-vision-api-openapi.yml
+  - type: Authentication
+    url: authentication/rows-authentication.yml
+  - type: Conventions
+    url: conventions/rows-conventions.yml
+  - type: DataModel
+    url: data-model/rows-data-model.yml
+  - type: ErrorCatalog
+    url: errors/rows-problem-types.yml
+  - type: AgenticAccess
+    url: agentic-access/rows-agentic-access.yml
+- aid: rows:rows-workspaces-api
+  name: Rows Workspaces API
+  description: Discover the workspaces available to the authenticated key.
+  humanURL: https://developers.rows.com/
+  baseURL: https://api.rows.com/v1
+  tags:
+  - Workspaces
+  properties:
+  - type: OpenAPI
+    url: openapi/rows-workspaces-api-openapi.yml
+  - type: Authentication
+    url: authentication/rows-authentication.yml
+  - type: Conventions
+    url: conventions/rows-conventions.yml
+  - type: DataModel
+    url: data-model/rows-data-model.yml
+  - type: ErrorCatalog
+    url: errors/rows-problem-types.yml
+  - type: AgenticAccess
+    url: agentic-access/rows-agentic-access.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -24,4 +153,59 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: http://www.rows.com
+  url: https://www.rows.com
+- type: DeveloperPortal
+  url: https://developers.rows.com/
+- type: Documentation
+  url: https://rows.com/docs/using-rows-api
+- type: APIReference
+  url: https://developers.rows.com/
+- type: Blog
+  url: https://rows.com/blog
+- type: Pricing
+  url: https://rows.com/pricing
+- type: TermsOfService
+  url: https://rows.com/terms
+- type: PrivacyPolicy
+  url: https://rows.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/rows
+- type: ChangeLog
+  url: https://rows.com/docs/whats-new-changelog
+- type: SDKs
+  url: packages/rows-packages.yml
+- type: Packages
+  url: packages/rows-packages.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/rows-llms.txt
+- type: WellKnown
+  url: well-known/rows-well-known.yml
+- type: SecurityTxt
+  url: well-known/rows-security.txt
+- type: Authentication
+  url: authentication/rows-authentication.yml
+- type: Conventions
+  url: conventions/rows-conventions.yml
+- type: Lifecycle
+  url: lifecycle/rows-lifecycle.yml
+- type: Conformance
+  url: conformance/rows-conformance.yml
+- type: Compliance
+  url: https://rows.com/docs/how-do-you-manage-security
+- type: TrustCenter
+  url: security/rows-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/rows-vulnerability-disclosure.yml
+- type: Security
+  url: https://rows.com/docs/how-do-you-manage-security
+- type: DomainSecurity
+  url: security/rows-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/rows-agentic-access.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1

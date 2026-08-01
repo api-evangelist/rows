@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Rows API
+  version: 1.0.0
+extends: openapi/rows-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provenance:
+        method: derived
+        source: github.com/rows/rows-n8n-nodes-rows + developers.rows.com
+      x-apievangelist-notes: >-
+        Spec derived from Rows' official first-party n8n node and public docs;
+        captures the verified public subset of the Rows API v1.
+  - target: $.info
+    update:
+      x-authentication: authentication/rows-authentication.yml
+      x-conventions: conventions/rows-conventions.yml
+      x-data-model: data-model/rows-data-model.yml

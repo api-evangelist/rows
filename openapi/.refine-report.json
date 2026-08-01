@@ -1,0 +1,22 @@
+{
+  "provider": "rows",
+  "sources": [
+    "rows-data-api-openapi.yml",
+    "rows-folders-api-openapi.yml",
+    "rows-spreadsheets-api-openapi.yml",
+    "rows-vision-api-openapi.yml",
+    "rows-workspaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "rows-data-api-openapi.yml",
+    "rows-folders-api-openapi.yml",
+    "rows-spreadsheets-api-openapi.yml",
+    "rows-vision-api-openapi.yml",
+    "rows-workspaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

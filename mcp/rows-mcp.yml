@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/rows-openapi.yml
+note: >-
+  No official hosted/remote Rows MCP server was found (checked docs, npm
+  @modelcontextprotocol, MCP registries). This is a DERIVED candidate tool list,
+  one tool per verified operation, to seed a future MCP server. status: candidate.
+server:
+  name: rows
+  transport: http
+tools:
+  - name: list_workspaces
+    description: List accessible Rows workspaces.
+    source_operation: openapi/rows-openapi.yml#listWorkspaces
+  - name: list_folders
+    description: List folders in the workspace.
+    source_operation: openapi/rows-openapi.yml#listFolders
+  - name: list_spreadsheets
+    description: List spreadsheets, optionally filtered by folder.
+    source_operation: openapi/rows-openapi.yml#listSpreadsheets
+  - name: get_spreadsheet
+    description: Get a spreadsheet and its tables.
+    source_operation: openapi/rows-openapi.yml#getSpreadsheet
+  - name: append_values
+    description: Append rows of values to a table range.
+    source_operation: openapi/rows-openapi.yml#appendValues
+  - name: overwrite_cells
+    description: Overwrite cells in a table range.
+    source_operation: openapi/rows-openapi.yml#overwriteCells
+  - name: import_vision_data
+    description: Extract structured data from files with Rows AI Vision.
+    source_operation: openapi/rows-openapi.yml#importVisionData

@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  openapi/rows-openapi.yml + github.com/rows/rows-n8n-nodes-rows +
+  https://rows.com/pricing + https://developers.rows.com/
+authentication:
+  style: api-key
+  transport: header
+  header: Authorization
+  format: Bearer <API_KEY>
+  docs: https://developers.rows.com/
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://api.rows.com/v1
+addressing:
+  cell_ranges: A1 notation (e.g. A1:B1000)
+  resource_hierarchy: workspace > folder > spreadsheet > table > cells/values
+rate_limiting:
+  model: monthly API-call quota by plan (not per-second header signaling)
+  quotas:
+    free: 500 calls/month
+    plus: 50000 calls/month
+    pro: 1000000 calls/month
+    enterprise: 1000000+ calls/month
+  source: https://rows.com/pricing
+idempotency:
+  supported: unknown
+  note: >-
+    Rows does not document an idempotency-key header; write operations
+    (append/overwrite) are not advertised as idempotent. No Idempotency pointer
+    is emitted (no fabrication).
+pagination:
+  supported: unknown
+  note: Not documented in the public integration source or docs surface reachable.
+error_handling:
+  envelope: JSON error responses; no RFC 9457 problem+json contract documented.
+request_body:
+  append: '{ "values": [["a","b"], ...] }'
+  overwrite_cells: '{ "cells": [[{"value":"a"},{"value":"b"}], ...] }'
+  vision_import: multipart/form-data (files[], folder_id, app_id, table_id, mode, merge, instructions)
+cross_links:
+  authentication: authentication/rows-authentication.yml
+  errors: errors/rows-problem-types.yml
+  lifecycle: lifecycle/rows-lifecycle.yml

@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rows-openapi.yml
+format: http-status
+note: >-
+  Rows does not publish an RFC 9457 problem+json error registry on its reachable
+  developer surface; these are the HTTP status semantics derived from the
+  verified operations. Not fabricated beyond documented status codes.
+problems:
+  - status: 401
+    title: Unauthorized
+    meaning: Missing or invalid API key (Authorization Bearer token).
+    remediation: Generate a valid API key in Rows account settings and send it as a Bearer token.
+    applies_to: all operations
+  - status: 404
+    title: Not Found
+    meaning: Spreadsheet or table id does not exist or is not accessible to the key.
+    remediation: Verify the spreadsheetId/tableId and that the key's workspace can access it.
+    applies_to: [getSpreadsheet, appendValues, overwriteCells]

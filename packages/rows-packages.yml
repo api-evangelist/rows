@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  npm registry + github.com/rows. Rows does not publish general-purpose
+  server SDKs (Python/JS/etc); the only first-party client library is the
+  official n8n community node. Third-party/unofficial wrappers exist on npm
+  (rows-api) and are intentionally excluded (official: false).
+packages:
+  - language: typescript
+    registry: npm
+    name: "@rowshq/n8n-nodes-rows"
+    url: https://www.npmjs.com/package/@rowshq/n8n-nodes-rows
+    install: npm install @rowshq/n8n-nodes-rows
+    source: https://github.com/rows/rows-n8n-nodes-rows
+    official: true
+    description: >-
+      Official Rows n8n community node — integrates the Rows API (append data,
+      overwrite data, Vision import) into n8n workflows via Bearer API-key auth.
+notes:
+  - The Rows API is consumed directly over HTTPS (base https://api.rows.com/v1)
+    with a Bearer API key; there is no first-party general SDK.
+  - npm "rows" is an unrelated CSV commandline utility; npm "rows-api" is an
+    unofficial third-party wrapper; PyPI "rows" is Álvaro Justen's tabular-data
+    library — none are Rows.com first-party and are excluded here.

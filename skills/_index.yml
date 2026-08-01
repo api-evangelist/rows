@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/rows-openapi.yml + conventions/rows-conventions.yml
+skills:
+  - file: rows-write-data-to-a-table.md
+    name: Write data to a Rows table
+    api: openapi/rows-openapi.yml
+    operations: [listSpreadsheets, getSpreadsheet, appendValues, overwriteCells]
+  - file: rows-import-data-with-vision.md
+    name: Import data from files with Rows AI Vision
+    api: openapi/rows-openapi.yml
+    operations: [listFolders, importVisionData]

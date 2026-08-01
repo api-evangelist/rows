@@ -1,0 +1,34 @@
+# Rows
+
+> Rows is an AI-powered spreadsheet that connects to live data. Its public REST
+> API (base https://api.rows.com/v1, Bearer API-key auth) lets you read
+> workspaces/folders/spreadsheets and read-write table cells and values, plus a
+> Vision endpoint that extracts structured data from files. Rows joined
+> Superhuman in 2025.
+
+## APIs
+- [Rows API v1](https://developers.rows.com/): base https://api.rows.com/v1, Bearer API key
+- [OpenAPI (derived)](openapi/rows-openapi.yml): 7 verified operations
+
+## Specs & Artifacts
+- [OpenAPI](openapi/rows-openapi.yml)
+- [Authentication](authentication/rows-authentication.yml)
+- [Conventions](conventions/rows-conventions.yml)
+- [Data model](data-model/rows-data-model.yml)
+- [Error / problem types](errors/rows-problem-types.yml)
+- [Lifecycle](lifecycle/rows-lifecycle.yml)
+- [MCP (candidate)](mcp/rows-mcp.yml)
+- [Agent skills](skills/_index.yml)
+- [Packages](packages/rows-packages.yml)
+- [Well-known](well-known/rows-well-known.yml)
+
+## Docs
+- [Developer portal / API reference](https://developers.rows.com/)
+- [Using the Rows API](https://rows.com/docs/using-rows-api)
+- [Support docs](https://rows.com/docs)
+- [Product changelog](https://rows.com/docs/whats-new-changelog)
+- [Pricing](https://rows.com/pricing)
+- [Integrations](https://rows.com/integrations)
+- [Security](https://rows.com/docs/how-do-you-manage-security)
+- [Blog](https://rows.com/blog)
+- [GitHub org](https://github.com/rows)

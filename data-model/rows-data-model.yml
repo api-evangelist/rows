@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rows-openapi.yml
+entities:
+  - name: Workspace
+    description: Top-level container the API key can access.
+  - name: Folder
+    description: Organizes spreadsheets within a workspace.
+  - name: Spreadsheet
+    description: A Rows document; contains one or more tables.
+    id_field: spreadsheetId
+  - name: Table
+    description: A table within a spreadsheet; holds cells addressed in A1 notation.
+    id_field: tableId
+  - name: CellRange
+    description: An A1-notation range of cells/values within a table.
+relationships:
+  - from: Folder
+    to: Workspace
+    kind: belongs_to
+  - from: Spreadsheet
+    to: Folder
+    kind: belongs_to
+    via: folder_id
+  - from: Table
+    to: Spreadsheet
+    kind: belongs_to
+    via: spreadsheetId
+  - from: Spreadsheet
+    to: Table
+    kind: has_many
+  - from: CellRange
+    to: Table
+    kind: belongs_to
+    via: tableId

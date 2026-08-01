@@ -1,0 +1,14 @@
+generated: '2026-07-21'
+method: searched
+source: https://rows.com/docs/whats-new-changelog
+scheme: product-changelog
+current_version: v1
+changelog_url: https://rows.com/docs/whats-new-changelog
+archive_url: https://github.com/rows/changelog
+note: >-
+  Rows publishes a dated product changelog ("What's new") covering the app and
+  AI features; a per-year archive is mirrored in the github.com/rows/changelog
+  repository. The API itself is on a single stable v1; no separate API-only
+  changelog was located. Recent dated entries are not transcribed here to avoid
+  fabrication — the live changelog is the source of truth.
+entries: []

@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://developers.rows.com/ + https://rows.com/docs/whats-new-changelog +
+  https://rows.com/pricing
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://api.rows.com/v1
+changelog:
+  product: https://rows.com/docs/whats-new-changelog
+  archive: https://github.com/rows/changelog
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  note: No formal API deprecation policy located on the reachable developer surface.
+sla:
+  url: null
+  note: SLA / uptime target published only under Enterprise agreements.
+status_page: null
+status_page_note: >-
+  No public status page found (status.rows.com does not resolve).
+quotas:
+  model: monthly API-call quota by plan
+  source: https://rows.com/pricing
+deprecated_operations: []
+ownership_note: >-
+  Rows has joined Superhuman (2025); some corporate legal links now point to
+  Superhuman/Grammarly. The rows.com product, docs, and api.rows.com remain live.

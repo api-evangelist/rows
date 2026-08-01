@@ -1,0 +1,5 @@
+Contact: mailto:security@rows.com
+Encryption: https://rows.com/security/pgp/rows_security_team_publickey.txt
+Policy: https://rows.com/docs/how-do-you-manage-security
+Expires: 2027-03-01T00:00:00.000Z
+Preferred-Languages: en

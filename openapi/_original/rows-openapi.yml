@@ -1,0 +1,244 @@
+openapi: 3.0.3
+info:
+  title: Rows API
+  version: v1
+  description: >-
+    The Rows API lets you programmatically read and write data in Rows
+    spreadsheets. It exposes workspaces, folders and spreadsheets for discovery,
+    table cell/value read-write operations for moving data in and out of a
+    spreadsheet, and a Vision import endpoint that extracts structured data from
+    image/document files using AI. Authentication is a Bearer API key generated
+    from your Rows account. This description is DERIVED by API Evangelist from
+    Rows' official public integration source (the first-party n8n community node)
+    and the public developer docs; it captures the verified subset of operations
+    and is not the provider's authoritative machine-readable contract.
+  contact:
+    name: Rows Support
+    url: https://developers.rows.com/
+  x-apievangelist-provenance:
+    generated: '2026-07-21'
+    method: derived
+    source: >-
+      https://github.com/rows/rows-n8n-nodes-rows (official first-party n8n node)
+      + https://developers.rows.com/ + https://rows.com/docs/api
+servers:
+  - url: https://api.rows.com/v1
+    description: Production
+tags:
+  - name: Workspaces
+    description: Discover the workspaces available to the authenticated key.
+  - name: Folders
+    description: Discover folders that organize spreadsheets.
+  - name: Spreadsheets
+    description: List and read spreadsheets and their tables.
+  - name: Data
+    description: Read and write table cell and value ranges.
+  - name: Vision
+    description: Extract structured data from files using Rows AI Vision.
+security:
+  - BearerAuth: []
+paths:
+  /workspaces:
+    get:
+      operationId: listWorkspaces
+      tags: [Workspaces]
+      summary: List workspaces
+      description: List the workspaces the authenticated API key can access.
+      responses:
+        '200':
+          description: A list of workspaces.
+        '401':
+          description: Missing or invalid API key.
+  /folders:
+    get:
+      operationId: listFolders
+      tags: [Folders]
+      summary: List folders
+      description: List the folders that organize spreadsheets in the workspace.
+      responses:
+        '200':
+          description: A list of folders.
+        '401':
+          description: Missing or invalid API key.
+  /spreadsheets:
+    get:
+      operationId: listSpreadsheets
+      tags: [Spreadsheets]
+      summary: List spreadsheets
+      description: >-
+        List spreadsheets, optionally filtered to a single folder via the
+        folder_id query parameter.
+      parameters:
+        - name: folder_id
+          in: query
+          required: false
+          description: Restrict results to spreadsheets inside this folder.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of spreadsheets.
+        '401':
+          description: Missing or invalid API key.
+  /spreadsheets/{spreadsheetId}:
+    get:
+      operationId: getSpreadsheet
+      tags: [Spreadsheets]
+      summary: Get a spreadsheet
+      description: Retrieve a single spreadsheet, including its tables.
+      parameters:
+        - name: spreadsheetId
+          in: path
+          required: true
+          description: The spreadsheet identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The spreadsheet and its tables.
+        '401':
+          description: Missing or invalid API key.
+        '404':
+          description: Spreadsheet not found.
+  /spreadsheets/{spreadsheetId}/tables/{tableId}/values/{range}:append:
+    post:
+      operationId: appendValues
+      tags: [Data]
+      summary: Append values to a table
+      description: >-
+        Append rows of values to a table at the given A1-notation range
+        (e.g. A1:B1000). The body carries a values array of string arrays.
+      parameters:
+        - name: spreadsheetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: tableId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: range
+          in: path
+          required: true
+          description: A1-notation range, e.g. A1:B1000.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                values:
+                  type: array
+                  description: An array of rows, each row an array of cell strings.
+                  items:
+                    type: array
+                    items:
+                      type: string
+      responses:
+        '200':
+          description: Values appended.
+        '401':
+          description: Missing or invalid API key.
+        '404':
+          description: Spreadsheet or table not found.
+  /spreadsheets/{spreadsheetId}/tables/{tableId}/cells/{range}:
+    post:
+      operationId: overwriteCells
+      tags: [Data]
+      summary: Overwrite cells in a table
+      description: >-
+        Overwrite the cells of a table at the given A1-notation range. The body
+        carries a cells array of arrays of cell objects ({ value }).
+      parameters:
+        - name: spreadsheetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: tableId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: range
+          in: path
+          required: true
+          description: A1-notation range, e.g. A1:B1000.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cells:
+                  type: array
+                  description: An array of rows, each row an array of cell objects.
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: string
+      responses:
+        '200':
+          description: Cells overwritten.
+        '401':
+          description: Missing or invalid API key.
+        '404':
+          description: Spreadsheet or table not found.
+  /vision/import:
+    post:
+      operationId: importVisionData
+      tags: [Vision]
+      summary: Import data from files with Rows AI Vision
+      description: >-
+        Extract structured tabular data from one or more image/document files
+        and import it into a spreadsheet. Sent as multipart/form-data.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                folder_id:
+                  type: string
+                app_id:
+                  type: string
+                  description: Target spreadsheet id.
+                table_id:
+                  type: string
+                mode:
+                  type: string
+                merge:
+                  type: boolean
+                instructions:
+                  type: string
+              required: [files]
+      responses:
+        '200':
+          description: Data extracted and imported.
+        '401':
+          description: Missing or invalid API key.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Rows API key sent as an Authorization: Bearer <API_KEY> header. Generate
+        a key in your Rows account settings.
