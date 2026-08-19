@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rows Data Spreadsheets API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Spreadsheets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List spreadsheets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rows.com/v1/spreadsheets",
+            "params": [
+              {
+                "name": "folder_id",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to spreadsheets inside this folder."
+              }
+            ]
+          },
+          "docs": "List spreadsheets, optionally filtered to a single folder via the folder_id query parameter."
+        },
+        {
+          "info": {
+            "name": "Get a spreadsheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rows.com/v1/spreadsheets/:spreadsheetId",
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "",
+                "type": "path",
+                "description": "The spreadsheet identifier."
+              }
+            ]
+          },
+          "docs": "Retrieve a single spreadsheet, including its tables."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

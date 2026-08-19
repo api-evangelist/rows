@@ -1,0 +1,148 @@
+{
+  "item": [
+    {
+      "id": "218c3f36-bde8-4092-8100-8a4da601cc3c",
+      "name": "Folders",
+      "description": {
+        "content": "Discover folders that organize spreadsheets.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ae87908c-e215-4c6b-b4ad-10342ca67792",
+          "name": "List folders",
+          "request": {
+            "name": "List folders",
+            "description": {
+              "content": "List the folders that organize spreadsheets in the workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "folders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f293855-7184-436b-9172-a9c5982f4894",
+              "name": "A list of folders.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "folders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d0ec6d21-5001-404d-ac70-8d208dcb1705",
+              "name": "Missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "folders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rows.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c5d56722-7486-4474-b2fc-e1f2fa56f857",
+    "name": "Rows Data Folders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Rows API lets you programmatically read and write data in Rows spreadsheets. It exposes workspaces, folders and spreadsheets for discovery, table cell/value read-write operations for moving data in and out of a spreadsheet, and a Vision import endpoint that extracts structured data from image/document files using AI. Authentication is a Bearer API key generated from your Rows account. This description is DERIVED by API Evangelist from Rows' official public integration source (the first-party n8n community node) and the public developer docs; it captures the verified subset of operations and is not the provider's authoritative machine-readable contract.\n\nContact Support:\n Name: Rows Support",
+      "type": "text/plain"
+    }
+  }
+}

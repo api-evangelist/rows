@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rows Data API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Append values to a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rows.com/v1/spreadsheets/:spreadsheetId/tables/:tableId/values/:range:append",
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "path",
+                "description": "A1-notation range, e.g. A1:B1000."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Append rows of values to a table at the given A1-notation range (e.g. A1:B1000). The body carries a values array of string arrays."
+        },
+        {
+          "info": {
+            "name": "Overwrite cells in a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rows.com/v1/spreadsheets/:spreadsheetId/tables/:tableId/cells/:range",
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "path",
+                "description": "A1-notation range, e.g. A1:B1000."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Overwrite the cells of a table at the given A1-notation range. The body carries a cells array of arrays of cell objects ({ value })."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

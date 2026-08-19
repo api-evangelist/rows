@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rows Data Vision API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vision",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Import data from files with Rows AI Vision",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rows.com/v1/vision/import",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "files",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "folder_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "app_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "table_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mode",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "merge",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "instructions",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Extract structured tabular data from one or more image/document files and import it into a spreadsheet. Sent as multipart/form-data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
