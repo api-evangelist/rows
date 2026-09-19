@@ -145,6 +145,8 @@ apis:
   humanURL: https://developers.rows.com/
   baseURL: https://api.rows.com/v1
   tags:
+  - Workspace
+  tags_raw:
   - Workspaces
   properties:
   - type: OpenAPI
