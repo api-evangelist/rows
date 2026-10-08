@@ -70,3 +70,58 @@ rate_limit_statements:
 - Rows API calls +1 million/month
 - Data Tables Automate per day
 - Data Tables Automate per min
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - seat
+  units:
+  - seat
+  plans:
+  - name: Free
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Plus
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Plus (billed Annually)
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Pro
+    access: other
+    model: unstated
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Pro (billed Annually)
+    access: other
+    model: unstated
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Enterprise
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
