@@ -1,0 +1,72 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://rows.com/pricing
+sources:
+- https://rows.com/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+  managed_tier: Plus
+published: true
+note: Spreadsheet/AI product pricing page with named tiers (monthly and annual rates); API call quotas
+  included per tier. Enterprise unpriced.
+plan_count: 6
+currency: USD
+plans:
+- name: Free
+  price_text: $0
+  price: 0
+  currency: USD
+  period: month
+  included_quota: AI Tasks 5/month, Integrations 10 accounts, Up to 3 guests, Rows API calls 500/month,
+    Cell enrichment limited (500 tasks/month), File import size 1 MB, Version history 7 days
+- name: Plus
+  price_text: $8 /month per user
+  price: 8
+  currency: USD
+  period: month
+  unit: per user
+  included_quota: AI Tasks 200/month, Data Tables automate per day, Integrations 10 accounts, Up to 10
+    guests, Rows API calls 50k/month, Cell enrichment 1M tasks/month, File import 5 MB, Version history
+    30 days
+  overage: Exceeding the allotted Cell enrichment tasks will block additional Enrichment tasks until the
+    next period.
+- name: Plus (billed Annually)
+  price_text: $6/month per user
+  price: 6
+  currency: USD
+  period: month
+  unit: per user
+- name: Pro
+  price_text: $79 /month + $8 /month per user
+  currency: USD
+  period: month
+  unit: platform + per user
+  included_quota: AI Tasks 1,000/month, Data Tables automate per min, Integrations 100 accounts, Up to
+    200 guests, Rows API calls 1M calls/month, Cell enrichment 1M tasks/month, File import 100 MB, Version
+    history 2 years, Video support
+- name: Pro (billed Annually)
+  price_text: $59/mo + $6/mo/user
+  currency: USD
+  period: month
+  unit: platform + per user
+- name: Enterprise
+  price_text: Contact us
+  period: none
+  included_quota: Advanced API endpoints, custom AI models, high-volume usage, SAML SSO, unlimited AI
+    Tasks, +1 million API calls/month
+rate_limit_statements:
+- Rows API calls 500/month
+- Rows API calls 50k/month
+- Rows API calls 1M calls/month
+- Rows API calls +1 million/month
+- Data Tables Automate per day
+- Data Tables Automate per min
