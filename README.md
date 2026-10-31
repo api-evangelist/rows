@@ -64,6 +64,136 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Rows is a company surfaced as a portfolio company of accel and added to the API Evangelist network as a stub for enrichment. Sector: productivity. This profile is a lead awaiting the enrichment pipeline.
+Rows is an AI-powered spreadsheet that connects to live data from dozens of business tools and lets teams build reports, dashboards and lightweight data apps without leaving a familiar grid. Beyond the app, Rows ships a public REST API (base https://api.rows.com/v1) authenticated with a Bearer API key: it exposes workspaces, folders and spreadsheets for discovery, table cell and value read-write operations for moving data in and out of a sheet, and a Vision endpoint that uses AI to extract structured tabular data from image and document files. API access is included on every plan with monthly call quotas scaling from the Free tier (500 calls/month) to Enterprise. Rows is SOC 2 Type II certified and GDPR compliant with European data residency, and joined Superhuman in 2025. It was backed by Accel.
 
-Backed by: accel — http://www.rows.com
+**Areas:** Company · Productivity · Spreadsheets · Data · No-Code · Automation · Artificial Intelligence · Analytics · Business Intelligence
+
+## Rows on APIs.io
+
+Everything profiled for Rows is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/rows/](https://apis.io/providers/rows/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [Rows Data API](https://apis.io/apis/rows/rows-data-api/) — Read and write table cell and value ranges.
+- [Rows Folders API](https://apis.io/apis/rows/rows-folders-api/) — Discover folders that organize spreadsheets.
+- [Rows Spreadsheets API](https://apis.io/apis/rows/rows-spreadsheets-api/) — List and read spreadsheets and their tables.
+- [Rows Vision API](https://apis.io/apis/rows/rows-vision-api/) — Extract structured data from files using Rows AI Vision.
+- [Rows Workspaces API](https://apis.io/apis/rows/rows-workspaces-api/) — Discover the workspaces available to the authenticated key.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [rows](https://apis.io/servers/rows/rows/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Rows Agentic Access](https://apis.io/agentic-access/rows/rows-agentic-access/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Rows Data API](https://apis.io/collections/rows/open-rows-data-api/)
+- [Rows Data Folders API](https://apis.io/collections/rows/open-rows-folders-api/)
+- [Rows Data Spreadsheets API](https://apis.io/collections/rows/open-rows-spreadsheets-api/)
+- [Rows Data Vision API](https://apis.io/collections/rows/open-rows-vision-api/)
+- [Rows Data Workspaces API](https://apis.io/collections/rows/open-rows-workspaces-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Rows Openapi Overlay](https://apis.io/overlays/rows/rows-openapi-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Rows Authentication](https://apis.io/security/rows/rows-authentication/)
+- [Rows Domain Security](https://apis.io/security/rows/rows-domain-security/)
+- [Rows Trust Center](https://apis.io/security/rows/rows-trust-center/)
+- [Rows Vulnerability Disclosure](https://apis.io/security/rows/rows-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Rows Plans Pricing](https://apis.io/plans/rows/rows-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.rows.com)
+- [Documentation](https://rows.com/docs/using-rows-api)
+- [API reference](https://developers.rows.com/)
+- [Pricing](https://rows.com/pricing)
+- [Changelog](https://rows.com/docs/whats-new-changelog)
+- [Blog](https://rows.com/blog)
+- [Security](https://rows.com/docs/how-do-you-manage-security)
+- [Compliance](https://rows.com/docs/how-do-you-manage-security)
+- [Terms of service](https://rows.com/terms)
+- [Privacy policy](https://rows.com/privacy)
+- [GitHub](https://github.com/rows)
+
+## API Evangelist rating
+
+**Kin Score 40.8** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 13.1 |
+| Contract governance | 4.5 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 41.1 |
+| Access clarity | 78.9 |
+
+**Agent readiness 20.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 32.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/rows/](https://apis.io/providers/rows/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Rows: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/rows/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
